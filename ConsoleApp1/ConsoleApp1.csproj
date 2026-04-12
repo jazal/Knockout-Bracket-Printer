@@ -1,0 +1,122 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Program.cs" />
+    <Compile Remove="RoundRobinSeed.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net8.0\ConsoleApp1.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net8.0\ConsoleApp1.GlobalUsings.g.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net8.0\bracket-last16.html" />
+    <Content Include="bin\Debug\net8.0\ConsoleApp1.deps.json" />
+    <Content Include="bin\Debug\net8.0\ConsoleApp1.runtimeconfig.json" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-Black.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-BlackItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-Bold.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-BoldItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-ExtraBold.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-ExtraBoldItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-ExtraLight.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-ExtraLightItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-Italic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-Light.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-LightItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-Medium.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-MediumItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-Regular.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-SemiBold.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-SemiBoldItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-Thin.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-ThinItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\OFL.txt" />
+    <Content Include="obj\ConsoleApp1.csproj.nuget.dgspec.json" />
+    <Content Include="obj\Debug\net8.0\ConsoleApp1.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net8.0\bracket-last16.pdf" />
+    <None Include="bin\Debug\net8.0\bracket-v3.pdf" />
+    <None Include="bin\Debug\net8.0\ConsoleApp1.dll" />
+    <None Include="bin\Debug\net8.0\ConsoleApp1.exe" />
+    <None Include="bin\Debug\net8.0\ConsoleApp1.pdb" />
+    <None Include="bin\Debug\net8.0\Microsoft.AspNetCore.Connections.Abstractions.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Client.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Common.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.Core.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Common.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.Extensions.Features.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.Extensions.Logging.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.Extensions.Options.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll" />
+    <None Include="bin\Debug\net8.0\QuestPDF.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\linux-arm64\native\libqpdf.so" />
+    <None Include="bin\Debug\net8.0\runtimes\linux-arm64\native\libQuestPdfSkia.so" />
+    <None Include="bin\Debug\net8.0\runtimes\linux-musl-x64\native\libqpdf.so" />
+    <None Include="bin\Debug\net8.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so" />
+    <None Include="bin\Debug\net8.0\runtimes\linux-x64\native\libqpdf.so" />
+    <None Include="bin\Debug\net8.0\runtimes\linux-x64\native\libQuestPdfSkia.so" />
+    <None Include="bin\Debug\net8.0\runtimes\osx-arm64\native\libqpdf.dylib" />
+    <None Include="bin\Debug\net8.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib" />
+    <None Include="bin\Debug\net8.0\runtimes\osx-x64\native\libqpdf.dylib" />
+    <None Include="bin\Debug\net8.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x64\native\libgcc_s_seh-1.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x64\native\libstdc++-6.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x64\native\libwinpthread-1.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x64\native\qpdf.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x64\native\QuestPdfSkia.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x64\native\zlib1.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x86\native\libgcc_s_dw2-1.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x86\native\libstdc++-6.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x86\native\libwinpthread-1.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x86\native\qpdf.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x86\native\QuestPdfSkia.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x86\native\zlib1.dll" />
+    <None Include="bin\Debug\net8.0\System.IO.Pipelines.dll" />
+    <None Include="obj\ConsoleApp1.csproj.nuget.g.props" />
+    <None Include="obj\ConsoleApp1.csproj.nuget.g.targets" />
+    <None Include="obj\Debug\net8.0\apphost.exe" />
+    <None Include="obj\Debug\net8.0\ConsoleA.CB28C8CC.Up2Date" />
+    <None Include="obj\Debug\net8.0\ConsoleApp1.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net8.0\ConsoleApp1.assets.cache" />
+    <None Include="obj\Debug\net8.0\ConsoleApp1.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net8.0\ConsoleApp1.csproj.BuildWithSkipAnalyzers" />
+    <None Include="obj\Debug\net8.0\ConsoleApp1.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net8.0\ConsoleApp1.dll" />
+    <None Include="obj\Debug\net8.0\ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net8.0\ConsoleApp1.genruntimeconfig.cache" />
+    <None Include="obj\Debug\net8.0\ConsoleApp1.pdb" />
+    <None Include="obj\Debug\net8.0\refint\ConsoleApp1.dll" />
+    <None Include="obj\Debug\net8.0\ref\ConsoleApp1.dll" />
+    <None Include="obj\project.nuget.cache" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.20" />
+    <PackageReference Include="Moq" Version="4.20.72" />
+    <PackageReference Include="QuestPDF" Version="2026.2.4" />
+    <PackageReference Include="xunit.v3" Version="3.2.2" />
+  </ItemGroup>
+
+</Project>

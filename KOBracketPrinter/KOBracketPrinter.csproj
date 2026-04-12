@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BracketTreeBuilder.cs" />
+    <Compile Remove="BracketTreeDemoData.cs" />
+    <Compile Remove="KnockoutBracketPaginationService.cs" />
+    <Compile Remove="KnockoutBracketPdfPrinter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net8.0\KOBracketPrinter.deps.json" />
+    <Content Include="bin\Debug\net8.0\KOBracketPrinter.runtimeconfig.json" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-Black.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-BlackItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-Bold.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-BoldItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-ExtraBold.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-ExtraBoldItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-ExtraLight.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-ExtraLightItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-Italic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-Light.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-LightItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-Medium.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-MediumItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-Regular.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-SemiBold.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-SemiBoldItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-Thin.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\Lato-ThinItalic.ttf" />
+    <Content Include="bin\Debug\net8.0\LatoFont\OFL.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net8.0\custom-knockout-32.pdf" />
+    <None Include="bin\Debug\net8.0\knockout-bracket.pdf" />
+    <None Include="bin\Debug\net8.0\KOBracketPrinter.dll" />
+    <None Include="bin\Debug\net8.0\KOBracketPrinter.exe" />
+    <None Include="bin\Debug\net8.0\KOBracketPrinter.pdb" />
+    <None Include="bin\Debug\net8.0\QuestPDF.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\linux-arm64\native\libqpdf.so" />
+    <None Include="bin\Debug\net8.0\runtimes\linux-arm64\native\libQuestPdfSkia.so" />
+    <None Include="bin\Debug\net8.0\runtimes\linux-musl-x64\native\libqpdf.so" />
+    <None Include="bin\Debug\net8.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so" />
+    <None Include="bin\Debug\net8.0\runtimes\linux-x64\native\libqpdf.so" />
+    <None Include="bin\Debug\net8.0\runtimes\linux-x64\native\libQuestPdfSkia.so" />
+    <None Include="bin\Debug\net8.0\runtimes\osx-arm64\native\libqpdf.dylib" />
+    <None Include="bin\Debug\net8.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib" />
+    <None Include="bin\Debug\net8.0\runtimes\osx-x64\native\libqpdf.dylib" />
+    <None Include="bin\Debug\net8.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x64\native\libgcc_s_seh-1.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x64\native\libstdc++-6.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x64\native\libwinpthread-1.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x64\native\qpdf.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x64\native\QuestPdfSkia.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x64\native\zlib1.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x86\native\libgcc_s_dw2-1.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x86\native\libstdc++-6.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x86\native\libwinpthread-1.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x86\native\qpdf.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x86\native\QuestPdfSkia.dll" />
+    <None Include="bin\Debug\net8.0\runtimes\win-x86\native\zlib1.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="QuestPDF" Version="2026.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\net9.0\" />
+  </ItemGroup>
+
+</Project>
