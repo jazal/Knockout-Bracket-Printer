@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KOBracketPrinter.Models;
+﻿namespace KOBracketPrinter.Models;
 
 public sealed record Player(int Id, string Name, int Seed, bool IsBye = false);
 
