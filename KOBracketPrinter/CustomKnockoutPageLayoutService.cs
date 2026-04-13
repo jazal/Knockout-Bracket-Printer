@@ -14,6 +14,7 @@ public static class CustomKnockoutPageLayoutService
             32 => Build32(bracket),
             64 => Build64(bracket),
             128 => Build128(bracket),
+            256 => Build256(bracket),
             _ => throw new NotSupportedException(
                 $"Custom print structure is not defined for {bracket.RequestedPlayerCount} players.")
         };
@@ -275,6 +276,216 @@ public static class CustomKnockoutPageLayoutService
         new BracketPrintPage
         {
             PageNumber = 9,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 16", 0, 8),
+                CreateColumn(bracket, "Quarter Final", 0, 4),
+                CreateColumn(bracket, "Semi Final", 0, 2),
+                CreateColumn(bracket, "Final", 0, 1)
+            ]
+        }
+        ];
+    }
+
+    private static List<BracketPrintPage> Build256(Bracket bracket)
+    {
+        return
+        [
+            new BracketPrintPage
+        {
+            PageNumber = 1,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 0, 8),
+                CreateColumn(bracket, "Last 128", 0, 4),
+                CreateColumn(bracket, "Last 64", 0, 2),
+                CreateColumn(bracket, "Last 32", 0, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 2,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 8, 8),
+                CreateColumn(bracket, "Last 128", 4, 4),
+                CreateColumn(bracket, "Last 64", 2, 2),
+                CreateColumn(bracket, "Last 32", 1, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 3,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 16, 8),
+                CreateColumn(bracket, "Last 128", 8, 4),
+                CreateColumn(bracket, "Last 64", 4, 2),
+                CreateColumn(bracket, "Last 32", 2, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 4,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 24, 8),
+                CreateColumn(bracket, "Last 128", 12, 4),
+                CreateColumn(bracket, "Last 64", 6, 2),
+                CreateColumn(bracket, "Last 32", 3, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 5,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 32, 8),
+                CreateColumn(bracket, "Last 128", 16, 4),
+                CreateColumn(bracket, "Last 64", 8, 2),
+                CreateColumn(bracket, "Last 32", 4, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 6,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 40, 8),
+                CreateColumn(bracket, "Last 128", 20, 4),
+                CreateColumn(bracket, "Last 64", 10, 2),
+                CreateColumn(bracket, "Last 32", 5, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 7,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 48, 8),
+                CreateColumn(bracket, "Last 128", 24, 4),
+                CreateColumn(bracket, "Last 64", 12, 2),
+                CreateColumn(bracket, "Last 32", 6, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 8,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 56, 8),
+                CreateColumn(bracket, "Last 128", 28, 4),
+                CreateColumn(bracket, "Last 64", 14, 2),
+                CreateColumn(bracket, "Last 32", 7, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 9,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 64, 8),
+                CreateColumn(bracket, "Last 128", 32, 4),
+                CreateColumn(bracket, "Last 64", 16, 2),
+                CreateColumn(bracket, "Last 32", 8, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 10,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 72, 8),
+                CreateColumn(bracket, "Last 128", 36, 4),
+                CreateColumn(bracket, "Last 64", 18, 2),
+                CreateColumn(bracket, "Last 32", 9, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 11,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 80, 8),
+                CreateColumn(bracket, "Last 128", 40, 4),
+                CreateColumn(bracket, "Last 64", 20, 2),
+                CreateColumn(bracket, "Last 32", 10, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 12,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 88, 8),
+                CreateColumn(bracket, "Last 128", 44, 4),
+                CreateColumn(bracket, "Last 64", 22, 2),
+                CreateColumn(bracket, "Last 32", 11, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 13,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 96, 8),
+                CreateColumn(bracket, "Last 128", 48, 4),
+                CreateColumn(bracket, "Last 64", 24, 2),
+                CreateColumn(bracket, "Last 32", 12, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 14,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 104, 8),
+                CreateColumn(bracket, "Last 128", 52, 4),
+                CreateColumn(bracket, "Last 64", 26, 2),
+                CreateColumn(bracket, "Last 32", 13, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 15,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 112, 8),
+                CreateColumn(bracket, "Last 128", 56, 4),
+                CreateColumn(bracket, "Last 64", 28, 2),
+                CreateColumn(bracket, "Last 32", 14, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 16,
+            Columns =
+            [
+                CreateColumn(bracket, "Last 256", 120, 8),
+                CreateColumn(bracket, "Last 128", 60, 4),
+                CreateColumn(bracket, "Last 64", 30, 2),
+                CreateColumn(bracket, "Last 32", 15, 1)
+            ]
+        },
+
+        new BracketPrintPage
+        {
+            PageNumber = 17,
             Columns =
             [
                 CreateColumn(bracket, "Last 16", 0, 8),
