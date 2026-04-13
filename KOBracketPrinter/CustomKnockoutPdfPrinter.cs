@@ -7,6 +7,13 @@ namespace KOBracketPrinter;
 
 public static class CustomKnockoutPdfPrinter
 {
+    private const float RoundColumnHeight = 500f;
+    private const float MatchBoxHeight = 38f;
+    private const float ColumnGap = 18f;
+    private const float StartX = 10f;
+    private const float StartY = 20f;
+    private const float BaseRowStep = 52f;
+
     public static void Generate(Bracket bracket, string outputPath)
     {
         QuestPDF.Settings.License = LicenseType.Community;
@@ -37,15 +44,15 @@ public static class CustomKnockoutPdfPrinter
     }
 
     private static void ComposeHeader(
-        IContainer container,
-        Bracket bracket,
-        BracketPrintPage pageData)
+    IContainer container,
+    Bracket bracket,
+    BracketPrintPage pageData)
     {
         container.Column(column =>
         {
             column.Item().AlignCenter().Text(bracket.Title).FontSize(16).Bold();
             column.Item().AlignCenter().Text($"Knockout stages {pageData.PageNumber}/{pageData.PageNumber}");
-            column.Item().PaddingTop(8);
+            column.Item().PaddingTop(4);
 
             column.Item().Row(row =>
             {
@@ -62,54 +69,107 @@ public static class CustomKnockoutPdfPrinter
                         .Bold();
                 }
             });
+
+            column.Item().PaddingBottom(4);
         });
     }
 
     private static void ComposePage(IContainer container, BracketPrintPage pageData)
     {
-        container.PaddingTop(10).Row(row =>
+        const float contentTopOffset = 10f;
+
+        container.PaddingTop(contentTopOffset).Row(row =>
         {
-            foreach (var columnData in pageData.Columns)
+            for (int roundIndex = 0; roundIndex < pageData.Columns.Count; roundIndex++)
             {
-                row.RelativeItem().PaddingHorizontal(6).Element(c =>
+                var columnData = pageData.Columns[roundIndex];
+
+                row.RelativeItem().PaddingHorizontal(6).Column(column =>
                 {
-                    ComposeRoundColumn(c, columnData);
+                    var positions = GetVerticalOffsets(roundIndex, columnData.Matches.Count);
+
+                    for (int i = 0; i < columnData.Matches.Count; i++)
+                    {
+                        if (i == 0 && positions[i] > 0)
+                            column.Item().PaddingTop(positions[i]);
+
+                        if (i > 0)
+                        {
+                            var gap = positions[i] - positions[i - 1] - MatchBoxHeight;
+                            if (gap > 0)
+                                column.Item().Height(gap);
+                        }
+
+                        var match = columnData.Matches[i];
+                        column.Item()
+                            .Height(MatchBoxHeight)
+                            .Element(c => ComposeMatchBox(c, match));
+                    }
                 });
             }
         });
     }
 
-    private static void ComposeRoundColumn(IContainer container, BracketPrintColumn columnData)
+    private static List<float> GetVerticalOffsets(int roundIndex, int matchCount)
     {
-        container.Column(column =>
+        var offsets = new List<float>();
+
+        float startOffset = roundIndex switch
         {
-            foreach (var match in columnData.Matches)
-            {
-                column.Item().PaddingBottom(10).Element(c => ComposeMatchBox(c, match));
-            }
-        });
+            0 => 0f,
+            1 => BaseRowStep / 2f,
+            2 => BaseRowStep * 1.5f,
+            3 => BaseRowStep * 3.5f,
+            _ => 0f
+        };
+
+        float step = BaseRowStep * (float)Math.Pow(2, roundIndex);
+
+        for (int i = 0; i < matchCount; i++)
+        {
+            offsets.Add(startOffset + i * step);
+        }
+
+        return offsets;
     }
 
     private static void ComposeMatchBox(IContainer container, Match match)
     {
-        container.Border(1)
+        container
+            .Height(MatchBoxHeight)
+            .Border(1)
             .BorderColor(Colors.Grey.Darken2)
             .Background(Colors.White)
-            .Column(column =>
+            .Layers(layers =>
             {
-                column.Item().Element(c => ComposePlayerRow(
-                    c,
-                    match.Player1,
-                    match.Score1,
-                    match.Winner?.Id == match.Player1?.Id));
+                layers.PrimaryLayer().Column(column =>
+                {
+                    column.Item().Element(c => ComposePlayerRow(
+                        c,
+                        match.Player1,
+                        match.Score1,
+                        match.Winner?.Id == match.Player1?.Id));
 
-                column.Item().LineHorizontal(1).LineColor(Colors.Grey.Lighten1);
+                    column.Item().LineHorizontal(1).LineColor(Colors.Grey.Lighten1);
 
-                column.Item().Element(c => ComposePlayerRow(
-                    c,
-                    match.Player2,
-                    match.Score2,
-                    match.Winner?.Id == match.Player2?.Id));
+                    column.Item().Element(c => ComposePlayerRow(
+                        c,
+                        match.Player2,
+                        match.Score2,
+                        match.Winner?.Id == match.Player2?.Id));
+                });
+
+                // Absolute-style overlay: match number before seed
+                layers.Layer()
+                    .AlignLeft()
+                    .AlignMiddle()
+                    .PaddingLeft(2)
+                    .Text(text =>
+                    {
+                        text.Span(match.MatchNumber.ToString())
+                            .FontSize(6)
+                            .FontColor(Colors.Grey.Darken1);
+                    });
             });
     }
 
@@ -119,12 +179,22 @@ public static class CustomKnockoutPdfPrinter
     int? score,
     bool isWinner)
     {
-        container.Height(20).Row(row =>
+        container.Height(18).Row(row =>
         {
-            row.ConstantItem(20)
+            // slight left offset space for overlaid match number
+            row.ConstantItem(24)
+                .PaddingLeft(10)
                 .AlignCenter()
                 .AlignMiddle()
-                .Text(player?.IsBye == true ? "" : player?.Seed.ToString() ?? "");
+                .Text(text =>
+                {
+                    if (player?.IsBye == true || player?.Seed is null || player.Seed == 0)
+                        return;
+
+                    text.Span(player.Seed.ToString())
+                        .FontSize(8)
+                        .FontColor(Colors.Grey.Darken3);
+                });
 
             var nameCell = row.RelativeItem()
                 .BorderLeft(1)
