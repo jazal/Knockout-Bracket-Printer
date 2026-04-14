@@ -16,7 +16,7 @@ public class PrintRequestMatchDto
 
     }
 
-    public PrintRequestMatchDto(int matchNo, int roundNumber, string? opponent1, string? opponent2, int? score1, int? score2, short? seed1, short? seed2)
+    public PrintRequestMatchDto(int matchNo, int roundNumber, string? opponent1 = null, string? opponent2 = null, int? score1 = null, int? score2 = null, short? seed1 = null, short? seed2 = null, string? flag1 = null, string? flag2 = null)
     {
         MatchNo = matchNo;
         RoundNumber = roundNumber;
@@ -26,6 +26,8 @@ public class PrintRequestMatchDto
         Score2 = score2;
         Seed1 = seed1;
         Seed2 = seed2;
+        Flag1 = flag1;
+        Flag2 = flag2;
     }
 
     public int MatchNo { get; set; }
@@ -43,4 +45,8 @@ public class PrintRequestMatchDto
     public short? Seed1 { get; set; }
 
     public short? Seed2 { get; set; }
+
+    public string? Flag1 { get; set; }
+
+    public string? Flag2 { get; set; }
 }

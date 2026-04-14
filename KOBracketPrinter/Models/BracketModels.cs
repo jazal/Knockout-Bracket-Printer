@@ -1,6 +1,11 @@
 ﻿namespace KOBracketPrinter.Models;
 
-public sealed record Player(int Id, string Name, int Seed, bool IsBye = false);
+public sealed record Player(
+    int Id,
+    string Name,
+    int? Seed,
+    string? FlagUrl = null,
+    bool IsBye = false);
 
 public sealed class Match
 {

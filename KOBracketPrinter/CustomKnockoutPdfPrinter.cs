@@ -183,6 +183,7 @@ public static class CustomKnockoutPdfPrinter
     bool isWinner)
     {
         bool showSeed = !(player?.IsBye == true || player?.Seed is null || player.Seed == 0);
+        var flagBytes = FlagImageCache.Get(player?.FlagUrl);
 
         container.Height(18).Row(row =>
         {
@@ -195,48 +196,68 @@ public static class CustomKnockoutPdfPrinter
                     .AlignMiddle()
                     .Text(text =>
                     {
-                        text.Span(player!.Seed.ToString())
-                            .FontSize(6)
+                        text.Span(player!.Seed!.Value.ToString())
+                            .FontSize(8)
                             .FontColor(Colors.Grey.Darken3);
                     });
             }
 
-            var nameCell = row.RelativeItem()
-                .PaddingHorizontal(3)
-                .AlignMiddle();
-
-            var rawName = player?.Name ?? "-";
-            var formatted = FormatPlayerNameForFixedRow(rawName);
-
-            nameCell.Column(col =>
+            row.RelativeItem().PaddingHorizontal(3).AlignMiddle().Row(nameRow =>
             {
-                if (!string.IsNullOrWhiteSpace(formatted.Line1))
+                if (flagBytes is not null)
                 {
-                    col.Item().Height(formatted.Line2 is null ? 18 : 9)
+                    nameRow.ConstantItem(14)
                         .AlignMiddle()
-                        .Text(text =>
+                        .Element(e =>
                         {
-                            var span = text.Span(formatted.Line1);
-                            span.FontSize(formatted.FontSize);
-
-                            if (isWinner)
-                                span.Bold();
+                            e.Width(14)
+                             //.Height(10)
+                             .Padding(1)
+                             .AlignCenter()
+                             .AlignMiddle()
+                             .Image(flagBytes)   // ✅ correct modern API
+                             .FitArea();         // ✅ scale properly
                         });
+
+                    nameRow.ConstantItem(3);
                 }
 
-                if (!string.IsNullOrWhiteSpace(formatted.Line2))
+                nameRow.RelativeItem().AlignMiddle().Element(nameContainer =>
                 {
-                    col.Item().Height(9)
-                        .AlignMiddle()
-                        .Text(text =>
-                        {
-                            var span = text.Span(formatted.Line2!);
-                            span.FontSize(formatted.FontSize);
+                    var rawName = player?.Name ?? "-";
+                    var formatted = FormatPlayerNameForFixedRow(rawName);
 
-                            if (isWinner)
-                                span.Bold();
-                        });
-                }
+                    nameContainer.Column(col =>
+                    {
+                        if (!string.IsNullOrWhiteSpace(formatted.Line1))
+                        {
+                            col.Item().Height(formatted.Line2 is null ? 18 : 9)
+                                .AlignMiddle()
+                                .Text(text =>
+                                {
+                                    var span = text.Span(formatted.Line1);
+                                    span.FontSize(formatted.FontSize);
+
+                                    if (isWinner)
+                                        span.Bold();
+                                });
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(formatted.Line2))
+                        {
+                            col.Item().Height(9)
+                                .AlignMiddle()
+                                .Text(text =>
+                                {
+                                    var span = text.Span(formatted.Line2!);
+                                    span.FontSize(formatted.FontSize);
+
+                                    if (isWinner)
+                                        span.Bold();
+                                });
+                        }
+                    });
+                });
             });
 
             row.ConstantItem(24)
@@ -305,7 +326,7 @@ public static class CustomKnockoutPdfPrinter
         }
 
         // For longer names, use 2 lines but allow more characters per line
-        var parts = SplitIntoTwoLinesSmart(value, 35, 35);
+        var parts = SplitIntoTwoLinesSmart(value, 30, 30);
 
         return new FixedNameLayout
         {
