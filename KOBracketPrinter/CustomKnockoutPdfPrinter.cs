@@ -181,21 +181,24 @@ public static class CustomKnockoutPdfPrinter
     int? score,
     bool isWinner)
     {
+        bool showSeed = !(player?.IsBye == true || player?.Seed is null || player.Seed == 0);
+
         container.Height(18).Row(row =>
         {
-            row.ConstantItem(24)
-                .PaddingLeft(10)
-                .AlignCenter()
-                .AlignMiddle()
-                .Text(text =>
-                {
-                    if (player?.IsBye == true || player?.Seed is null || player.Seed == 0)
-                        return;
-
-                    text.Span(player.Seed.ToString())
-                        .FontSize(8)
-                        .FontColor(Colors.Grey.Darken3);
-                });
+            if (showSeed)
+            {
+                row.ConstantItem(24)
+                    .BorderRight(1)
+                    .BorderColor(Colors.Grey.Darken2)
+                    .AlignCenter()
+                    .AlignMiddle()
+                    .Text(text =>
+                    {
+                        text.Span(player!.Seed.ToString())
+                            .FontSize(6)
+                            .FontColor(Colors.Grey.Darken3);
+                    });
+            }
 
             var nameCell = row.RelativeItem()
                 .PaddingHorizontal(3)
