@@ -163,14 +163,15 @@ public static class CustomKnockoutPdfPrinter
 
                 // Absolute-style overlay: match number before seed
                 layers.Layer()
-                    .AlignLeft()
-                    .AlignMiddle()
+                    .AlignRight()
+                    .AlignTop()
                     .PaddingLeft(2)
+                    .PaddingTop(-8)
                     .Text(text =>
                     {
                         text.Span(match.MatchNumber.ToString())
                             .FontSize(6)
-                            .FontColor(Colors.Grey.Darken1);
+                            .FontColor(Colors.Green.Darken4);
                     });
             });
     }
