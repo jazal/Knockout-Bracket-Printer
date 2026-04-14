@@ -16,8 +16,8 @@ var players = Enumerable.Range(1, 32)
 //var printRequestDto = TestDatas.Get16();
 //var printRequestDto = TestDatas.Get32();
 //var printRequestDto = TestDatas.Get64();
-var printRequestDto = TestDatas.Get128();
-//var printRequestDto = TestDatas.Get256();
+//var printRequestDto = TestDatas.Get128();
+var printRequestDto = TestDatas.Get256();
 var bracket = PrintRequestMapper.Map(printRequestDto);
 var outputPdfPath = Path.Combine(AppContext.BaseDirectory, "test-real-knockout.pdf");
 CustomKnockoutPdfPrinter.Generate(bracket, outputPdfPath);

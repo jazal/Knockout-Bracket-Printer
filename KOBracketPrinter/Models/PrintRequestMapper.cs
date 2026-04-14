@@ -44,6 +44,7 @@ public static class PrintRequestMapper
 
         return remaining switch
         {
+            256 => "Last 256",
             128 => "Last 128",
             64 => "Last 64",
             32 => "Last 32",

@@ -29,8 +29,8 @@ public static class CustomKnockoutPageLayoutService
                 PageNumber = 1,
                 Columns =
                 [
-                    CreateColumn(bracket, "Semi Final", 0, 2),
-                    CreateColumn(bracket, "Final", 0, 1)
+                    CreateColumn(bracket, 1, "Semi Final", 0, 2),
+                    CreateColumn(bracket, 2,"Final", 0, 1)
                 ]
             }
         ];
@@ -45,9 +45,9 @@ public static class CustomKnockoutPageLayoutService
                 PageNumber = 1,
                 Columns =
                 [
-                    CreateColumn(bracket, "Quarter Final", 0, 4),
-                    CreateColumn(bracket, "Semi Final", 0, 2),
-                    CreateColumn(bracket, "Final", 0, 1)
+                    CreateColumn(bracket, 1, "Quarter Final", 0, 4),
+                    CreateColumn(bracket, 2, "Semi Final", 0, 2),
+                    CreateColumn(bracket, 3, "Final", 0, 1)
                 ]
             }
         ];
@@ -62,10 +62,10 @@ public static class CustomKnockoutPageLayoutService
                 PageNumber = 1,
                 Columns =
                 [
-                    CreateColumn(bracket, "Last 16", 0, 8),
-                    CreateColumn(bracket, "Quarter Final", 0, 4),
-                    CreateColumn(bracket, "Semi Final", 0, 2),
-                    CreateColumn(bracket, "Final", 0, 1)
+                    CreateColumn(bracket, 1,  "Last 16", 0, 8),
+                    CreateColumn(bracket, 2, "Quarter Final", 0, 4),
+                    CreateColumn(bracket, 3, "Semi Final", 0, 2),
+                    CreateColumn(bracket, 4, "Final", 0, 1)
                 ]
             }
         ];
@@ -80,9 +80,9 @@ public static class CustomKnockoutPageLayoutService
                 PageNumber = 1,
                 Columns =
                 [
-                    CreateColumn(bracket, "Last 32", 0, 8),
-                    CreateColumn(bracket, "Last 16", 0, 4),
-                    CreateColumn(bracket, "Quarter Final", 0, 2)
+                    CreateColumn(bracket, 1, "Last 32", 0, 8),
+                    CreateColumn(bracket, 2, "Last 16", 0, 4),
+                    CreateColumn(bracket, 3, "Quarter Final", 0, 2)
                 ]
             },
 
@@ -91,9 +91,9 @@ public static class CustomKnockoutPageLayoutService
                 PageNumber = 2,
                 Columns =
                 [
-                    CreateColumn(bracket, "Last 32", 8, 8),
-                    CreateColumn(bracket, "Last 16", 4, 4),
-                    CreateColumn(bracket, "Quarter Final", 2, 2)
+                    CreateColumn(bracket, 1, "Last 32", 8, 8),
+                    CreateColumn(bracket, 2, "Last 16", 4, 4),
+                    CreateColumn(bracket, 3, "Quarter Final", 2, 2)
                 ]
             },
 
@@ -102,10 +102,10 @@ public static class CustomKnockoutPageLayoutService
                 PageNumber = 3,
                 Columns =
                 [
-                    CreateColumn(bracket, "Last 16", 0, 8),
-                    CreateColumn(bracket, "Quarter Final", 0, 4),
-                    CreateColumn(bracket, "Semi Final", 0, 2),
-                    CreateColumn(bracket, "Final", 0, 1)
+                    CreateColumn(bracket, 2, "Last 16", 0, 8),
+                    CreateColumn(bracket, 3, "Quarter Final", 0, 4),
+                    CreateColumn(bracket, 4, "Semi Final", 0, 2),
+                    CreateColumn(bracket, 5, "Final", 0, 1)
                 ]
             }
         ];
@@ -120,9 +120,9 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 1,
             Columns =
             [
-                CreateColumn(bracket, "Last 64", 0, 8),
-                CreateColumn(bracket, "Last 32", 0, 4),
-                CreateColumn(bracket, "Last 16", 0, 2)
+                CreateColumn(bracket, 1, "Last 64", 0, 8),
+                CreateColumn(bracket, 2, "Last 32", 0, 4),
+                CreateColumn(bracket, 3, "Last 16", 0, 2)
             ]
         },
 
@@ -131,9 +131,9 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 2,
             Columns =
             [
-                CreateColumn(bracket, "Last 64", 8, 8),
-                CreateColumn(bracket, "Last 32", 4, 4),
-                CreateColumn(bracket, "Last 16", 2, 2)
+                CreateColumn(bracket, 1, "Last 64", 8, 8),
+                CreateColumn(bracket, 2, "Last 32", 4, 4),
+                CreateColumn(bracket, 3, "Last 16", 2, 2)
             ]
         },
 
@@ -142,9 +142,9 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 3,
             Columns =
             [
-                CreateColumn(bracket, "Last 64", 16, 8),
-                CreateColumn(bracket, "Last 32", 8, 4),
-                CreateColumn(bracket, "Last 16", 4, 2)
+                CreateColumn(bracket, 1, "Last 64", 16, 8),
+                CreateColumn(bracket, 2, "Last 32", 8, 4),
+                CreateColumn(bracket, 3, "Last 16", 4, 2)
             ]
         },
 
@@ -153,9 +153,9 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 4,
             Columns =
             [
-                CreateColumn(bracket, "Last 64", 24, 8),
-                CreateColumn(bracket, "Last 32", 12, 4),
-                CreateColumn(bracket, "Last 16", 6, 2)
+                CreateColumn(bracket, 1, "Last 64", 24, 8),
+                CreateColumn(bracket, 2, "Last 32", 12, 4),
+                CreateColumn(bracket, 3, "Last 16", 6, 2)
             ]
         },
 
@@ -164,10 +164,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 5,
             Columns =
             [
-                CreateColumn(bracket, "Last 16", 0, 8),
-                CreateColumn(bracket, "Quarter Final", 0, 4),
-                CreateColumn(bracket, "Semi Final", 0, 2),
-                CreateColumn(bracket, "Final", 0, 1)
+                CreateColumn(bracket, 3, "Last 16", 0, 8),
+                CreateColumn(bracket, 4, "Quarter Final", 0, 4),
+                CreateColumn(bracket, 5, "Semi Final", 0, 2),
+                CreateColumn(bracket, 6, "Final", 0, 1)
             ]
         }
         ];
@@ -182,10 +182,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 1,
             Columns =
             [
-                CreateColumn(bracket, "Last 128", 0, 8),
-                CreateColumn(bracket, "Last 64", 0, 4),
-                CreateColumn(bracket, "Last 32", 0, 2),
-                CreateColumn(bracket, "Last 16", 0, 1)
+                CreateColumn(bracket, 1, "Last 128", 0, 8),
+                CreateColumn(bracket, 2, "Last 64", 0, 4),
+                CreateColumn(bracket, 3, "Last 32", 0, 2),
+                CreateColumn(bracket, 4, "Last 16", 0, 1)
             ]
         },
 
@@ -194,10 +194,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 2,
             Columns =
             [
-                CreateColumn(bracket, "Last 128", 8, 8),
-                CreateColumn(bracket, "Last 64", 4, 4),
-                CreateColumn(bracket, "Last 32", 2, 2),
-                CreateColumn(bracket, "Last 16", 1, 1)
+                CreateColumn(bracket, 1, "Last 128", 8, 8),
+                CreateColumn(bracket, 2, "Last 64", 4, 4),
+                CreateColumn(bracket, 3, "Last 32", 2, 2),
+                CreateColumn(bracket, 4, "Last 16", 1, 1)
             ]
         },
 
@@ -206,10 +206,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 3,
             Columns =
             [
-                CreateColumn(bracket, "Last 128", 16, 8),
-                CreateColumn(bracket, "Last 64", 8, 4),
-                CreateColumn(bracket, "Last 32", 4, 2),
-                CreateColumn(bracket, "Last 16", 2, 1)
+                CreateColumn(bracket, 1,"Last 128", 16, 8),
+                CreateColumn(bracket, 2,"Last 64", 8, 4),
+                CreateColumn(bracket, 3,"Last 32", 4, 2),
+                CreateColumn(bracket, 4,"Last 16", 2, 1)
             ]
         },
 
@@ -218,10 +218,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 4,
             Columns =
             [
-                CreateColumn(bracket, "Last 128", 24, 8),
-                CreateColumn(bracket, "Last 64", 12, 4),
-                CreateColumn(bracket, "Last 32", 6, 2),
-                CreateColumn(bracket, "Last 16", 3, 1)
+                CreateColumn(bracket, 1,"Last 128", 24, 8),
+                CreateColumn(bracket, 2,"Last 64", 12, 4),
+                CreateColumn(bracket, 3,"Last 32", 6, 2),
+                CreateColumn(bracket, 4,"Last 16", 3, 1)
             ]
         },
 
@@ -230,10 +230,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 5,
             Columns =
             [
-                CreateColumn(bracket, "Last 128", 32, 8),
-                CreateColumn(bracket, "Last 64", 16, 4),
-                CreateColumn(bracket, "Last 32", 8, 2),
-                CreateColumn(bracket, "Last 16", 4, 1)
+                CreateColumn(bracket, 1,"Last 128", 32, 8),
+                CreateColumn(bracket, 2,"Last 64", 16, 4),
+                CreateColumn(bracket, 3,"Last 32", 8, 2),
+                CreateColumn(bracket, 4,"Last 16", 4, 1)
             ]
         },
 
@@ -242,10 +242,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 6,
             Columns =
             [
-                CreateColumn(bracket, "Last 128", 40, 8),
-                CreateColumn(bracket, "Last 64", 20, 4),
-                CreateColumn(bracket, "Last 32", 10, 2),
-                CreateColumn(bracket, "Last 16", 5, 1)
+                CreateColumn(bracket, 1, "Last 128", 40, 8),
+                CreateColumn(bracket, 2, "Last 64", 20, 4),
+                CreateColumn(bracket, 3, "Last 32", 10, 2),
+                CreateColumn(bracket, 4, "Last 16", 5, 1)
             ]
         },
 
@@ -254,10 +254,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 7,
             Columns =
             [
-                CreateColumn(bracket, "Last 128", 48, 8),
-                CreateColumn(bracket, "Last 64", 24, 4),
-                CreateColumn(bracket, "Last 32", 12, 2),
-                CreateColumn(bracket, "Last 16", 6, 1)
+                CreateColumn(bracket, 1,"Last 128", 48, 8),
+                CreateColumn(bracket, 2,"Last 64", 24, 4),
+                CreateColumn(bracket, 3,"Last 32", 12, 2),
+                CreateColumn(bracket, 4,"Last 16", 6, 1)
             ]
         },
 
@@ -266,10 +266,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 8,
             Columns =
             [
-                CreateColumn(bracket, "Last 128", 56, 8),
-                CreateColumn(bracket, "Last 64", 28, 4),
-                CreateColumn(bracket, "Last 32", 14, 2),
-                CreateColumn(bracket, "Last 16", 7, 1)
+                CreateColumn(bracket, 1,"Last 128", 56, 8),
+                CreateColumn(bracket, 2,"Last 64", 28, 4),
+                CreateColumn(bracket, 3,"Last 32", 14, 2),
+                CreateColumn(bracket, 4,"Last 16", 7, 1)
             ]
         },
 
@@ -278,10 +278,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 9,
             Columns =
             [
-                CreateColumn(bracket, "Last 16", 0, 8),
-                CreateColumn(bracket, "Quarter Final", 0, 4),
-                CreateColumn(bracket, "Semi Final", 0, 2),
-                CreateColumn(bracket, "Final", 0, 1)
+                CreateColumn(bracket, 4,"Last 16", 0, 8),
+                CreateColumn(bracket, 5,"Quarter Final", 0, 4),
+                CreateColumn(bracket, 6,"Semi Final", 0, 2),
+                CreateColumn(bracket, 7,"Final", 0, 1)
             ]
         }
         ];
@@ -296,10 +296,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 1,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 0, 8),
-                CreateColumn(bracket, "Last 128", 0, 4),
-                CreateColumn(bracket, "Last 64", 0, 2),
-                CreateColumn(bracket, "Last 32", 0, 1)
+                CreateColumn(bracket, 1, "Last 256", 0, 8),
+                CreateColumn(bracket, 2, "Last 128", 0, 4),
+                CreateColumn(bracket, 3, "Last 64", 0, 2),
+                CreateColumn(bracket, 4, "Last 32", 0, 1)
             ]
         },
 
@@ -308,10 +308,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 2,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 8, 8),
-                CreateColumn(bracket, "Last 128", 4, 4),
-                CreateColumn(bracket, "Last 64", 2, 2),
-                CreateColumn(bracket, "Last 32", 1, 1)
+                CreateColumn(bracket, 1, "Last 256", 8, 8),
+                CreateColumn(bracket, 2, "Last 128", 4, 4),
+                CreateColumn(bracket, 3, "Last 64", 2, 2),
+                CreateColumn(bracket, 4, "Last 32", 1, 1)
             ]
         },
 
@@ -320,10 +320,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 3,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 16, 8),
-                CreateColumn(bracket, "Last 128", 8, 4),
-                CreateColumn(bracket, "Last 64", 4, 2),
-                CreateColumn(bracket, "Last 32", 2, 1)
+                CreateColumn(bracket, 1, "Last 256", 16, 8),
+                CreateColumn(bracket, 2, "Last 128", 8, 4),
+                CreateColumn(bracket, 3, "Last 64", 4, 2),
+                CreateColumn(bracket, 4, "Last 32", 2, 1)
             ]
         },
 
@@ -332,10 +332,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 4,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 24, 8),
-                CreateColumn(bracket, "Last 128", 12, 4),
-                CreateColumn(bracket, "Last 64", 6, 2),
-                CreateColumn(bracket, "Last 32", 3, 1)
+                CreateColumn(bracket, 1, "Last 256", 24, 8),
+                CreateColumn(bracket, 2, "Last 128", 12, 4),
+                CreateColumn(bracket, 3, "Last 64", 6, 2),
+                CreateColumn(bracket, 4, "Last 32", 3, 1)
             ]
         },
 
@@ -344,10 +344,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 5,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 32, 8),
-                CreateColumn(bracket, "Last 128", 16, 4),
-                CreateColumn(bracket, "Last 64", 8, 2),
-                CreateColumn(bracket, "Last 32", 4, 1)
+                CreateColumn(bracket, 1, "Last 256", 32, 8),
+                CreateColumn(bracket, 2, "Last 128", 16, 4),
+                CreateColumn(bracket, 3, "Last 64", 8, 2),
+                CreateColumn(bracket, 4, "Last 32", 4, 1)
             ]
         },
 
@@ -356,10 +356,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 6,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 40, 8),
-                CreateColumn(bracket, "Last 128", 20, 4),
-                CreateColumn(bracket, "Last 64", 10, 2),
-                CreateColumn(bracket, "Last 32", 5, 1)
+                CreateColumn(bracket, 1, "Last 256", 40, 8),
+                CreateColumn(bracket, 2, "Last 128", 20, 4),
+                CreateColumn(bracket, 3, "Last 64", 10, 2),
+                CreateColumn(bracket, 4, "Last 32", 5, 1)
             ]
         },
 
@@ -368,10 +368,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 7,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 48, 8),
-                CreateColumn(bracket, "Last 128", 24, 4),
-                CreateColumn(bracket, "Last 64", 12, 2),
-                CreateColumn(bracket, "Last 32", 6, 1)
+                CreateColumn(bracket, 1, "Last 256", 48, 8),
+                CreateColumn(bracket, 2, "Last 128", 24, 4),
+                CreateColumn(bracket, 3, "Last 64", 12, 2),
+                CreateColumn(bracket, 4, "Last 32", 6, 1)
             ]
         },
 
@@ -380,10 +380,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 8,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 56, 8),
-                CreateColumn(bracket, "Last 128", 28, 4),
-                CreateColumn(bracket, "Last 64", 14, 2),
-                CreateColumn(bracket, "Last 32", 7, 1)
+                CreateColumn(bracket, 1, "Last 256", 56, 8),
+                CreateColumn(bracket, 2, "Last 128", 28, 4),
+                CreateColumn(bracket, 3, "Last 64", 14, 2),
+                CreateColumn(bracket, 4, "Last 32", 7, 1)
             ]
         },
 
@@ -392,10 +392,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 9,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 64, 8),
-                CreateColumn(bracket, "Last 128", 32, 4),
-                CreateColumn(bracket, "Last 64", 16, 2),
-                CreateColumn(bracket, "Last 32", 8, 1)
+                CreateColumn(bracket, 1, "Last 256", 64, 8),
+                CreateColumn(bracket, 2, "Last 128", 32, 4),
+                CreateColumn(bracket, 3, "Last 64", 16, 2),
+                CreateColumn(bracket, 4, "Last 32", 8, 1)
             ]
         },
 
@@ -404,10 +404,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 10,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 72, 8),
-                CreateColumn(bracket, "Last 128", 36, 4),
-                CreateColumn(bracket, "Last 64", 18, 2),
-                CreateColumn(bracket, "Last 32", 9, 1)
+                CreateColumn(bracket, 1, "Last 256", 72, 8),
+                CreateColumn(bracket, 2, "Last 128", 36, 4),
+                CreateColumn(bracket, 3, "Last 64", 18, 2),
+                CreateColumn(bracket, 4, "Last 32", 9, 1)
             ]
         },
 
@@ -416,10 +416,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 11,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 80, 8),
-                CreateColumn(bracket, "Last 128", 40, 4),
-                CreateColumn(bracket, "Last 64", 20, 2),
-                CreateColumn(bracket, "Last 32", 10, 1)
+                CreateColumn(bracket, 1, "Last 256", 80, 8),
+                CreateColumn(bracket, 2, "Last 128", 40, 4),
+                CreateColumn(bracket, 3, "Last 64", 20, 2),
+                CreateColumn(bracket, 4, "Last 32", 10, 1)
             ]
         },
 
@@ -428,10 +428,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 12,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 88, 8),
-                CreateColumn(bracket, "Last 128", 44, 4),
-                CreateColumn(bracket, "Last 64", 22, 2),
-                CreateColumn(bracket, "Last 32", 11, 1)
+                CreateColumn(bracket, 1, "Last 256", 88, 8),
+                CreateColumn(bracket, 2, "Last 128", 44, 4),
+                CreateColumn(bracket, 3, "Last 64", 22, 2),
+                CreateColumn(bracket, 4, "Last 32", 11, 1)
             ]
         },
 
@@ -440,10 +440,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 13,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 96, 8),
-                CreateColumn(bracket, "Last 128", 48, 4),
-                CreateColumn(bracket, "Last 64", 24, 2),
-                CreateColumn(bracket, "Last 32", 12, 1)
+                CreateColumn(bracket, 1, "Last 256", 96, 8),
+                CreateColumn(bracket, 2, "Last 128", 48, 4),
+                CreateColumn(bracket, 3, "Last 64", 24, 2),
+                CreateColumn(bracket, 4, "Last 32", 12, 1)
             ]
         },
 
@@ -452,10 +452,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 14,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 104, 8),
-                CreateColumn(bracket, "Last 128", 52, 4),
-                CreateColumn(bracket, "Last 64", 26, 2),
-                CreateColumn(bracket, "Last 32", 13, 1)
+                CreateColumn(bracket, 1, "Last 256", 104, 8),
+                CreateColumn(bracket, 2, "Last 128", 52, 4),
+                CreateColumn(bracket, 3, "Last 64", 26, 2),
+                CreateColumn(bracket, 4, "Last 32", 13, 1)
             ]
         },
 
@@ -464,10 +464,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 15,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 112, 8),
-                CreateColumn(bracket, "Last 128", 56, 4),
-                CreateColumn(bracket, "Last 64", 28, 2),
-                CreateColumn(bracket, "Last 32", 14, 1)
+                CreateColumn(bracket, 1, "Last 256", 112, 8),
+                CreateColumn(bracket, 2, "Last 128", 56, 4),
+                CreateColumn(bracket, 3, "Last 64", 28, 2),
+                CreateColumn(bracket, 4, "Last 32", 14, 1)
             ]
         },
 
@@ -476,10 +476,10 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 16,
             Columns =
             [
-                CreateColumn(bracket, "Last 256", 120, 8),
-                CreateColumn(bracket, "Last 128", 60, 4),
-                CreateColumn(bracket, "Last 64", 30, 2),
-                CreateColumn(bracket, "Last 32", 15, 1)
+                CreateColumn(bracket, 1, "Last 256", 120, 8),
+                CreateColumn(bracket, 2, "Last 128", 60, 4),
+                CreateColumn(bracket, 3, "Last 64", 30, 2),
+                CreateColumn(bracket, 4, "Last 32", 15, 1)
             ]
         },
 
@@ -488,35 +488,45 @@ public static class CustomKnockoutPageLayoutService
             PageNumber = 17,
             Columns =
             [
-                CreateColumn(bracket, "Last 16", 0, 8),
-                CreateColumn(bracket, "Quarter Final", 0, 4),
-                CreateColumn(bracket, "Semi Final", 0, 2),
-                CreateColumn(bracket, "Final", 0, 1)
+                CreateColumn(bracket, 5, "Last 16", 0, 8),
+                CreateColumn(bracket, 6, "Quarter Final", 0, 4),
+                CreateColumn(bracket, 7, "Semi Final", 0, 2),
+                CreateColumn(bracket, 8, "Final", 0, 1)
             ]
         }
         ];
     }
 
     private static BracketPrintColumn CreateColumn(
-        Bracket bracket,
-        string title,
-        int skip,
-        int take)
+    Bracket bracket,
+    int roundNumber,
+    string fallbackTitle,
+    int skip,
+    int take)
     {
-        var round = bracket.Rounds.FirstOrDefault(r => Normalize(r.Title) == Normalize(title));
+        var round = bracket.Rounds
+            .FirstOrDefault(r => r.RoundNumber == roundNumber);
+
+        if (round is null)
+        {
+            round = bracket.Rounds
+                .FirstOrDefault(r => Normalize(r.Title) == Normalize(fallbackTitle));
+        }
 
         if (round is null)
         {
             return new BracketPrintColumn
             {
-                Title = title,
+                RoundNumber = roundNumber,
+                Title = fallbackTitle,
                 Matches = []
             };
         }
 
         return new BracketPrintColumn
         {
-            Title = round.Title,
+            RoundNumber = round.RoundNumber,
+            Title = string.IsNullOrWhiteSpace(round.Title) ? fallbackTitle : round.Title,
             Matches = round.Matches
                 .OrderBy(m => m.PositionIndex)
                 .Skip(skip)

@@ -19,6 +19,7 @@ public static class CustomKnockoutPdfPrinter
         QuestPDF.Settings.License = LicenseType.Community;
 
         var pages = CustomKnockoutPageLayoutService.BuildPages(bracket);
+        var totalPages = pages.Count;
 
         var document = Document.Create(container =>
         {
@@ -33,7 +34,7 @@ public static class CustomKnockoutPdfPrinter
                     page.PageColor(Colors.White);
                     page.DefaultTextStyle(x => x.FontSize(10));
 
-                    page.Header().Element(c => ComposeHeader(c, bracket, pageData));
+                    page.Header().Element(c => ComposeHeader(c, bracket, pageData, totalPages));
                     page.Content().Element(c => ComposePage(c, pageData));
                     page.Footer().Element(c => ComposeFooter(c));
                 });
@@ -46,12 +47,13 @@ public static class CustomKnockoutPdfPrinter
     private static void ComposeHeader(
     IContainer container,
     Bracket bracket,
-    BracketPrintPage pageData)
+    BracketPrintPage pageData,
+    int totalPages)
     {
         container.Column(column =>
         {
             column.Item().AlignCenter().Text(bracket.Title).FontSize(16).Bold();
-            column.Item().AlignCenter().Text($"Knockout stages {pageData.PageNumber}/{pageData.PageNumber}");
+            column.Item().AlignCenter().Text($"Knockout stages {pageData.PageNumber}/{totalPages}");
             column.Item().PaddingTop(4);
 
             column.Item().Row(row =>
