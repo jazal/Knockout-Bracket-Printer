@@ -183,7 +183,6 @@ public static class CustomKnockoutPdfPrinter
     {
         container.Height(18).Row(row =>
         {
-            // slight left offset space for overlaid match number
             row.ConstantItem(24)
                 .PaddingLeft(10)
                 .AlignCenter()
@@ -199,18 +198,42 @@ public static class CustomKnockoutPdfPrinter
                 });
 
             var nameCell = row.RelativeItem()
-                .BorderLeft(1)
-                .BorderRight(1)
-                .BorderColor(Colors.Grey.Darken2)
                 .PaddingHorizontal(3)
                 .AlignMiddle();
 
-            var name = player?.Name ?? "-";
+            var rawName = player?.Name ?? "-";
+            var formatted = FormatPlayerNameForFixedRow(rawName);
 
-            if (isWinner)
-                nameCell.Text(name).Bold();
-            else
-                nameCell.Text(name);
+            nameCell.Column(col =>
+            {
+                if (!string.IsNullOrWhiteSpace(formatted.Line1))
+                {
+                    col.Item().Height(formatted.Line2 is null ? 18 : 9)
+                        .AlignMiddle()
+                        .Text(text =>
+                        {
+                            var span = text.Span(formatted.Line1);
+                            span.FontSize(formatted.FontSize);
+
+                            if (isWinner)
+                                span.Bold();
+                        });
+                }
+
+                if (!string.IsNullOrWhiteSpace(formatted.Line2))
+                {
+                    col.Item().Height(9)
+                        .AlignMiddle()
+                        .Text(text =>
+                        {
+                            var span = text.Span(formatted.Line2!);
+                            span.FontSize(formatted.FontSize);
+
+                            if (isWinner)
+                                span.Bold();
+                        });
+                }
+            });
 
             row.ConstantItem(24)
                 .AlignCenter()
@@ -232,5 +255,161 @@ public static class CustomKnockoutPdfPrinter
             });
             row.RelativeItem().AlignRight().Text($"Printed: {DateTime.Now:dd.MM.yyyy HH:mm}");
         });
+    }
+
+    private sealed class FixedNameLayout
+    {
+        public string Line1 { get; init; } = "-";
+        public string? Line2 { get; init; }
+        public float FontSize { get; init; }
+    }
+
+    private static FixedNameLayout FormatPlayerNameForFixedRow(string? value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return new FixedNameLayout
+            {
+                Line1 = "-",
+                Line2 = null,
+                FontSize = 8
+            };
+        }
+
+        value = value.Trim();
+
+        // Use full width first before shrinking
+        if (value.Length <= 22)
+        {
+            return new FixedNameLayout
+            {
+                Line1 = value,
+                Line2 = null,
+                FontSize = 8
+            };
+        }
+
+        // Slightly smaller font, still keep one line if possible
+        if (value.Length <= 30)
+        {
+            return new FixedNameLayout
+            {
+                Line1 = value,
+                Line2 = null,
+                FontSize = 7
+            };
+        }
+
+        // For longer names, use 2 lines but allow more characters per line
+        var parts = SplitIntoTwoLinesSmart(value, 35, 35);
+
+        return new FixedNameLayout
+        {
+            Line1 = parts.line1,
+            Line2 = parts.line2,
+            FontSize = 6.5f
+        };
+    }
+
+    private static (string line1, string? line2) SplitIntoTwoLinesSmart(string value, int max1, int max2)
+    {
+        value = NormalizeSpaces(value);
+
+        if (value.Length <= max1)
+            return (value, null);
+
+        int break1 = FindBestBreak(value, max1);
+        string line1 = value[..break1].Trim();
+        string remaining = value[break1..].Trim();
+
+        if (remaining.Length <= max2)
+            return (line1, remaining);
+
+        int break2 = FindBestBreak(remaining, max2);
+        string line2 = remaining[..break2].Trim();
+
+        if (break2 < remaining.Length)
+        {
+            if (line2.Length >= max2)
+                line2 = line2[..Math.Max(0, max2 - 1)] + "…";
+            else
+                line2 += "…";
+        }
+
+        return (line1, line2);
+    }
+
+    private static int FindBestBreak(string value, int preferred)
+    {
+        if (value.Length <= preferred)
+            return value.Length;
+
+        // Prefer breaking at separators near the preferred width
+        char[] separators = [' ', '-', '_'];
+
+        for (int i = preferred; i >= Math.Max(1, preferred - 6); i--)
+        {
+            if (separators.Contains(value[i - 1]))
+                return i;
+        }
+
+        for (int i = preferred; i <= Math.Min(value.Length - 1, preferred + 6); i++)
+        {
+            if (separators.Contains(value[i]))
+                return i + 1;
+        }
+
+        return preferred;
+    }
+
+    private static string NormalizeSpaces(string value)
+    {
+        return string.Join(" ", value
+            .Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries));
+    }
+
+    private static (string line1, string? line2) SplitIntoTwoLines(string value, int max1, int max2)
+    {
+        value = value.Trim();
+
+        if (value.Length <= max1)
+            return (value, null);
+
+        var firstBreak = FindBreakPosition(value, max1);
+        var line1 = value[..firstBreak].Trim();
+
+        var remaining = value[firstBreak..].Trim();
+
+        if (remaining.Length <= max2)
+            return (line1, remaining);
+
+        var secondBreak = FindBreakPosition(remaining, max2);
+        var line2 = remaining[..secondBreak].Trim();
+
+        // hard clamp second line so it never grows layout
+        if (line2.Length > max2)
+            line2 = line2[..max2];
+
+        if (secondBreak < remaining.Length)
+        {
+            if (line2.Length >= max2)
+                line2 = line2[..Math.Max(0, max2 - 1)] + "…";
+            else
+                line2 += "…";
+        }
+
+        return (line1, line2);
+    }
+
+    private static int FindBreakPosition(string value, int maxLength)
+    {
+        if (value.Length <= maxLength)
+            return value.Length;
+
+        var lastSpace = value.LastIndexOf(' ', maxLength);
+        if (lastSpace > 0)
+            return lastSpace;
+
+        return maxLength;
     }
 }
