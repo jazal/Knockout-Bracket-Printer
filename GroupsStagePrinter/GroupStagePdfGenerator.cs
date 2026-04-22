@@ -92,9 +92,11 @@ public class GroupStagePdfGenerator
 
     private void ComposeContent(IContainer container)
     {
+        var groupsPerRow = _request.GroupsPerRow == 3 ? 3 : 2;
+
         container.PaddingTop(10).Grid(grid =>
         {
-            grid.Columns(3);
+            grid.Columns(groupsPerRow);
             grid.HorizontalSpacing(10);
             grid.VerticalSpacing(12);
 
@@ -122,9 +124,9 @@ public class GroupStagePdfGenerator
                     .Text($"Group {group.GroupName}")
                     .FontColor(Colors.White)
                     .Bold()
-                    .FontSize(11);
+                    .FontSize(9);
 
-                column.Item().PaddingTop(6).Table(table =>
+                column.Item().PaddingTop(3).Table(table =>
                 {
                     table.ColumnsDefinition(columns =>
                     {

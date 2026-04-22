@@ -5,6 +5,7 @@ public class GroupStagePrintRequest
     public string Title { get; set; } = "";
     public string? Subtitle { get; set; }
     public string? LogoUrl { get; set; }
+    public int? GroupsPerRow { get; set; } = 3;   // 3 or 2
     public List<GroupStandingModel> Groups { get; set; } = new();
 }
 
