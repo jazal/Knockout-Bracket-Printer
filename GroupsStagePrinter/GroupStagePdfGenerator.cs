@@ -111,6 +111,8 @@ public class GroupStagePdfGenerator
 
     private void ComposeGroupTable(IContainer container, GroupStandingModel group)
     {
+        var showPoints = _request.ShowPoints;
+
         container
             .ShowEntire()
             .Border(1)
@@ -124,20 +126,24 @@ public class GroupStagePdfGenerator
                     .Text($"Group {group.GroupName}")
                     .FontColor(Colors.White)
                     .Bold()
-                    .FontSize(9);
+                    .FontSize(11);
 
-                column.Item().PaddingTop(3).Table(table =>
+                column.Item().PaddingTop(6).Table(table =>
                 {
                     table.ColumnsDefinition(columns =>
                     {
-                        columns.ConstantColumn(20);
-                        columns.RelativeColumn(2.3f);
-                        columns.RelativeColumn(1.2f);
-                        columns.ConstantColumn(22);
-                        columns.ConstantColumn(22);
-                        columns.ConstantColumn(22);
-                        columns.ConstantColumn(22);
-                        columns.ConstantColumn(26);
+                        columns.ConstantColumn(20);   // #
+                        columns.RelativeColumn(2.3f); // Player
+                        columns.RelativeColumn(1.2f); // Country
+
+                        if (showPoints)
+                            columns.RelativeColumn(1.8f); // Points
+
+                        columns.ConstantColumn(22);   // MP
+                        columns.ConstantColumn(22);   // MW
+                        columns.ConstantColumn(22);   // FW
+                        columns.ConstantColumn(22);   // FL
+                        columns.ConstantColumn(26);   // Diff
                     });
 
                     static IContainer HeaderStyle(IContainer x) =>
@@ -158,6 +164,10 @@ public class GroupStagePdfGenerator
                         header.Cell().Element(HeaderStyle).AlignCenter().Text("#").FontSize(8).Bold();
                         header.Cell().Element(HeaderStyle).Text("Player").FontSize(8).Bold();
                         header.Cell().Element(HeaderStyle).Text("Country").FontSize(8).Bold();
+
+                        if (showPoints)
+                            header.Cell().Element(HeaderStyle).AlignCenter().Text("Points").FontSize(8).Bold();
+
                         header.Cell().Element(HeaderStyle).AlignCenter().Text("MP").FontSize(8).Bold();
                         header.Cell().Element(HeaderStyle).AlignCenter().Text("MW").FontSize(8).Bold();
                         header.Cell().Element(HeaderStyle).AlignCenter().Text("FW").FontSize(8).Bold();
@@ -172,6 +182,12 @@ public class GroupStagePdfGenerator
                         table.Cell().Element(CellStyle).AlignCenter().Text((i + 1).ToString()).FontSize(8);
                         table.Cell().Element(CellStyle).Text(player.PlayerName).FontSize(8);
                         table.Cell().Element(CellStyle).Text(player.Country).FontSize(8);
+
+                        if (showPoints)
+                        {
+                            table.Cell().Element(CellStyle).Element(c => ComposePointsCell(c, player.Points));
+                        }
+
                         table.Cell().Element(CellStyle).AlignCenter().Text(player.MatchesPlayed.ToString()).FontSize(8);
                         table.Cell().Element(CellStyle).AlignCenter().Text(player.MatchesWon.ToString()).FontSize(8);
                         table.Cell().Element(CellStyle).AlignCenter().Text(player.FramesWon.ToString()).FontSize(8);
@@ -180,5 +196,35 @@ public class GroupStagePdfGenerator
                     }
                 });
             });
+    }
+
+    private void ComposePointsCell(IContainer container, int[]? points)
+    {
+        var values = points ?? [];
+
+        container.Row(row =>
+        {
+            row.Spacing(2);
+
+            foreach (var point in values)
+            {
+                row.ConstantItem(14).Height(14).Element(box =>
+                {
+                    var background = point == -1 ? Colors.Black : Colors.Yellow.Lighten2;
+                    var textColor = point == -1 ? Colors.White : Colors.Black;
+                    var displayText = point == -1 ? "" : point.ToString();
+
+                    box.Background(background)
+                       .Border(0)
+                       .BorderColor(Colors.Grey.Lighten1)
+                       .AlignCenter()
+                       .AlignMiddle()
+                       .Text(displayText)
+                       .FontSize(7)
+                       .FontColor(textColor)
+                       .Bold();
+                });
+            }
+        });
     }
 }

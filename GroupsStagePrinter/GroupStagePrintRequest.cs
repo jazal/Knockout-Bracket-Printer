@@ -5,7 +5,10 @@ public class GroupStagePrintRequest
     public string Title { get; set; } = "";
     public string? Subtitle { get; set; }
     public string? LogoUrl { get; set; }
-    public int? GroupsPerRow { get; set; } = 3;   // 3 or 2
+
+    public int? GroupsPerRow { get; set; }   // 3 or else 2
+    public bool ShowPoints { get; set; }     // on/off
+
     public List<GroupStandingModel> Groups { get; set; } = new();
 }
 
@@ -19,6 +22,8 @@ public class GroupPlayerStandingModel
 {
     public string PlayerName { get; set; } = "";
     public string Country { get; set; } = "";
+    public int[] Points { get; set; } = [];
+
     public int MatchesPlayed { get; set; }
     public int MatchesWon { get; set; }
     public int FramesWon { get; set; }

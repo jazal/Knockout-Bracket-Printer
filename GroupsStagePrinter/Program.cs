@@ -5,6 +5,8 @@ var request = new GroupStagePrintRequest
     Title = "Group Stage Standings",
     Subtitle = "Snooker Championship 2026",
     LogoUrl = "https://example.com/logo.png",
+    GroupsPerRow = 2,
+    ShowPoints = true,
     Groups = new List<GroupStandingModel>
     {
         new GroupStandingModel
@@ -12,10 +14,10 @@ var request = new GroupStagePrintRequest
             GroupName = "A",
             Players = new List<GroupPlayerStandingModel>
             {
-                new() { PlayerName = "Ali", Country = "Qatar", MatchesPlayed = 3, MatchesWon = 2, FramesWon = 8, FramesLost = 4, FrameDifference = 4 },
-                new() { PlayerName = "Ahmed", Country = "Pakistan", MatchesPlayed = 3, MatchesWon = 2, FramesWon = 7, FramesLost = 5, FrameDifference = 2 },
-                new() { PlayerName = "John", Country = "England", MatchesPlayed = 3, MatchesWon = 1, FramesWon = 5, FramesLost = 7, FrameDifference = -2 },
-                new() { PlayerName = "Mark", Country = "India", MatchesPlayed = 3, MatchesWon = 1, FramesWon = 4, FramesLost = 8, FrameDifference = -4 }
+                new() { Points = new[] { 3, -1, 1 }, PlayerName = "Ali", Country = "Qatar", MatchesPlayed = 3, MatchesWon = 2, FramesWon = 8, FramesLost = 4, FrameDifference = 4 },
+                new() { Points = new[] { 3, -1, 1 }, PlayerName = "Ahmed", Country = "Pakistan", MatchesPlayed = 3, MatchesWon = 2, FramesWon = 7, FramesLost = 5, FrameDifference = 2 },
+                new() { Points = new[] { 3, -1, 1 }, PlayerName = "John", Country = "England", MatchesPlayed = 3, MatchesWon = 1, FramesWon = 5, FramesLost = 7, FrameDifference = -2 },
+                new() { Points = new[] { 3, -1, 1 }, PlayerName = "Mark", Country = "India", MatchesPlayed = 3, MatchesWon = 1, FramesWon = 4, FramesLost = 8, FrameDifference = -4 }
             }
         },
         new GroupStandingModel
