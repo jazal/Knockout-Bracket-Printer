@@ -46,9 +46,9 @@ public class GroupStagePdfGenerator
 
     private void ComposeHeader(IContainer container)
     {
-        container.Height(70).AlignMiddle().Row(row =>
+        container.Height(60).AlignMiddle().Row(row =>
         {
-            row.ConstantItem(70)
+            row.ConstantItem(60)
                 .AlignLeft()
                 .AlignMiddle()
                 .Element(c =>
@@ -72,7 +72,7 @@ public class GroupStagePdfGenerator
                     column.Item()
                         .AlignCenter()
                         .Text(_request.Title ?? string.Empty)
-                        .FontSize(16)
+                        .FontSize(12)
                         .Bold();
 
                     if (!string.IsNullOrWhiteSpace(_request.Subtitle))
@@ -81,7 +81,7 @@ public class GroupStagePdfGenerator
                             .PaddingTop(4)
                             .AlignCenter()
                             .Text(_request.Subtitle!)
-                            .FontSize(11)
+                            .FontSize(10)
                             .FontColor(Colors.Grey.Darken2);
                     }
                 });
