@@ -100,7 +100,9 @@ public class GroupStagePdfGenerator
 
             foreach (var group in _request.Groups)
             {
-                grid.Item().Element(c => ComposeGroupTable(c, group));
+                grid.Item()
+                    .ShowEntire()
+                    .Element(c => ComposeGroupTable(c, group));
             }
         });
     }
@@ -108,6 +110,7 @@ public class GroupStagePdfGenerator
     private void ComposeGroupTable(IContainer container, GroupStandingModel group)
     {
         container
+            .ShowEntire()
             .Border(1)
             .BorderColor(Colors.Grey.Lighten1)
             .Padding(6)
@@ -125,14 +128,14 @@ public class GroupStagePdfGenerator
                 {
                     table.ColumnsDefinition(columns =>
                     {
-                        columns.ConstantColumn(20);   // #
-                        columns.RelativeColumn(2.3f); // Player
-                        columns.RelativeColumn(1.2f); // Country
-                        columns.ConstantColumn(22);   // MP
-                        columns.ConstantColumn(22);   // MW
-                        columns.ConstantColumn(22);   // FW
-                        columns.ConstantColumn(22);   // FL
-                        columns.ConstantColumn(26);   // Diff
+                        columns.ConstantColumn(20);
+                        columns.RelativeColumn(2.3f);
+                        columns.RelativeColumn(1.2f);
+                        columns.ConstantColumn(22);
+                        columns.ConstantColumn(22);
+                        columns.ConstantColumn(22);
+                        columns.ConstantColumn(22);
+                        columns.ConstantColumn(26);
                     });
 
                     static IContainer HeaderStyle(IContainer x) =>
