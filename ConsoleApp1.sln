@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamWithPlayersPrinter", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupsStagePrinter", "GroupsStagePrinter\GroupsStagePrinter.csproj", "{AF77DD28-7BF4-49C9-905E-F22DF031C483}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefereeSchedulePrinter", "RefereeSchedulePrinter\RefereeSchedulePrinter.csproj", "{3A0C5250-94FB-4431-9462-63CE6C5D9B57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{AF77DD28-7BF4-49C9-905E-F22DF031C483}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF77DD28-7BF4-49C9-905E-F22DF031C483}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF77DD28-7BF4-49C9-905E-F22DF031C483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A0C5250-94FB-4431-9462-63CE6C5D9B57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0C5250-94FB-4431-9462-63CE6C5D9B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0C5250-94FB-4431-9462-63CE6C5D9B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0C5250-94FB-4431-9462-63CE6C5D9B57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
